@@ -1,5 +1,6 @@
 @use '@/styles/palette' as *;
 @use '@/styles/variables' as *;
+@use '@/styles/mixins' as *;
 
 .details {
     max-width: 733px;
@@ -9,9 +10,8 @@
     cursor: pointer;
 
     &__author {
-        display: flex;
+        @include d-flex(null, null, center);
         gap: 5px;
-        align-items: center;
     }
 
     &__title {

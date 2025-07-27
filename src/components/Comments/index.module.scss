@@ -1,3 +1,5 @@
+@use '@/styles/mixins' as *;
+
 .comments {
     display: block;
     max-width: 730px;
@@ -13,8 +15,7 @@
     }
 
     &__respond {
-        display: flex;
-        justify-content: end;
+        @include d-flex(null, flex-end, null);
     }
 
     &__btn {
