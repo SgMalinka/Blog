@@ -1,16 +1,14 @@
-'use client';
-
-import { blogData } from '@/core/constants/blog-data';
 import { getTimeAgo } from '@/core/utils';
-import { useParams } from 'next/navigation';
 import { Comments } from '@/components';
 import Image from 'next/image';
+import { fetchPostsServer } from '@/core/utils/fetchPosts';
 
 import s from './page.module.scss';
 
-export default function Page() {
-    const params = useParams();
-    const post = blogData.find(item => item.id === params.id);
+export default async function Page({ params }: { params: Promise<{ id: string }> }) {
+    const { id } = await params;
+    const posts = await fetchPostsServer();
+    const post = posts.find(item => item.id === id);
 
     if (!post) {
         return null;
@@ -29,7 +27,7 @@ export default function Page() {
                         className={s.post__user__photo}
                     />
                     <p>{post.author.name}</p>
-                    <p>{getTimeAgo(post.createdAt)}</p>
+                    <p>{getTimeAgo(String(post.createdAt))}</p>
                 </div>
                 <p className={s.post__content}>{post.content}</p>
                 <div className={s.post__comments}>

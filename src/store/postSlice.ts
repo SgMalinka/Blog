@@ -2,12 +2,28 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { collection, getDocs, addDoc } from 'firebase/firestore';
 import { db } from '@/core/lib';
 
+interface AuthorProperties {
+    name: string;
+    photoURL: string;
+    uid: string;
+}
+
+interface CommentProperties {
+    id: string;
+    userImage: string;
+    userName: string;
+    createdAt: string;
+    text: string;
+}
+
 export type Post = {
     id?: string;
     title: string;
     content: string;
     createdAt?: string;
-    authorId: string;
+    authorId: string | null;
+    author: AuthorProperties;
+    comments: CommentProperties[] | [];
 };
 
 const initialState = {
@@ -22,14 +38,16 @@ export const fetchPosts = createAsyncThunk('posts/fetchPosts', async () => {
 
 export const addPost = createAsyncThunk(
     'posts/addPost',
-    async ({ title, content, authorId }: Post) => {
+    async ({ title, content, authorId, author, comments }: Post) => {
         const docRef = await addDoc(collection(db, 'posts'), {
             title,
             content,
             authorId,
             createdAt: new Date().toISOString(),
+            author,
+            comments,
         });
-        return { title, content, authorId, id: docRef.id };
+        return { title, content, authorId, id: docRef.id, author, comments };
     },
 );
 
