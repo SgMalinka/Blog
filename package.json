@@ -11,7 +11,7 @@
         "format": "prettier --write \"src/**/*.{ts,tsx,js,jsx,json,scss,css,md}\" \"package.json\" \"tsconfig.json\" \".github/workflows/**/*.yml\"",
         "format:check": "prettier --check \"src/**/*.{ts,tsx,js,jsx,json,scss,css,md}\" \"package.json\" \"tsconfig.json\" \".github/workflows/**/*.yml\"",
         "prepare": "husky install",
-        "test": "echo \"No tests yet\""
+        "test": "jest"
     },
     "lint-staged": {
         "*.{ts,tsx,js,jsx}": [
@@ -45,6 +45,7 @@
         "@types/react-dom": "^19.1.6",
         "@typescript-eslint/eslint-plugin": "^8.38.0",
         "@typescript-eslint/parser": "^8.38.0",
+        "cross-fetch": "^4.1.0",
         "dotenv-cli": "^9.0.0",
         "eslint": "^9.31.0",
         "eslint-config-next": "15.4.4",

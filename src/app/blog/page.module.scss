@@ -16,6 +16,10 @@
         max-width: 730px;
         width: 100%;
         @include d-flex(null, space-between, center);
+
+        @media (max-width: 731px) {
+            padding: 0 20px;
+        }
     }
 
     &__create {

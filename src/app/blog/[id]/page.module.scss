@@ -3,6 +3,9 @@
 .post {
     @include d-flex(column, center, center);
     padding-top: 33px;
+    @media (max-width: 731px) {
+        padding: 0 20px;
+    }
 
     &__container {
         max-width: 733px;
