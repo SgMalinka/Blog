@@ -30,7 +30,7 @@ export const Details = ({ title, content, createdAt, authorName, authorImage }: 
             </div>
             <div>
                 <p className={s.details__title}>{title}</p>
-                <p className={s.details__content}>{content}</p>
+                <p className={s.details__content}>{content.slice(0, 200)}</p>
             </div>
         </div>
     );

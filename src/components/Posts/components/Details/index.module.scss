@@ -25,6 +25,9 @@
         line-height: 24px;
         color: $text-black;
         margin-bottom: 40px;
+        max-width: 730px;
+        width: 100%;
+        word-break: break-word;
     }
 
     &__image {

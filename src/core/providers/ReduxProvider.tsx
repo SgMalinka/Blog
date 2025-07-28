@@ -10,8 +10,6 @@ import { store } from '@/store';
 export const ReduxProvider = ({ children }: { children: React.ReactNode }) => {
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, user => {
-            console.log(user);
-
             if (user) {
                 store.dispatch(
                     setUser({
