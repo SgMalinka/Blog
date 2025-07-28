@@ -18,7 +18,7 @@ export const BlogHeader = () => {
                     Create post
                 </button>
             </div>
-            {isOpen && <ModalWindow toggleModalWindow={toggleModalWindow} />}
+            {isOpen && <ModalWindow actionType="create" toggleModalWindow={toggleModalWindow} />}
         </>
     );
 };
