@@ -1,0 +1,29 @@
+@use '@/styles/mixins' as *;
+
+.comments {
+    display: block;
+    max-width: 730px;
+
+    &__textarea {
+        width: 100%;
+        resize: none;
+        height: 100px;
+        outline: none;
+        padding: 5px;
+        border-radius: 10px;
+        margin: 10px 0;
+    }
+
+    &__respond {
+        @include d-flex(null, flex-end, null);
+    }
+
+    &__btn {
+        cursor: pointer;
+        background: black;
+        color: white;
+        font-size: 0.9rem;
+        padding: 5px 20px;
+        border-radius: 12px;
+    }
+}

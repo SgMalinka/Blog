@@ -1,0 +1,42 @@
+@use '@/styles/palette' as *;
+@use '@/styles/mixins' as *;
+
+.blog {
+    max-width: 1920px;
+    width: 100%;
+    margin: 0 auto;
+
+    &__container {
+        @include d-flex(column, null, center);
+        min-height: 100%;
+        margin-top: 33px;
+    }
+
+    &__header {
+        max-width: 730px;
+        width: 100%;
+        @include d-flex(null, space-between, center);
+
+        @media (max-width: 731px) {
+            padding: 0 20px;
+        }
+    }
+
+    &__create {
+        cursor: pointer;
+        transition: 0.8s;
+        padding: 3px 5px;
+        background: none;
+        font-size: 1rem;
+        font-weight: 500;
+        background: #0070f3;
+        color: white;
+        padding: 3px 5px;
+        border-radius: 15px;
+    }
+
+    &__recommended {
+        color: $text-black;
+        font-size: 1rem;
+    }
+}
